@@ -1,7 +1,7 @@
 # projekt_3_elections_scraper
 Třetí projek Engeto Python Akademie.
 ## Popis projektu
-Tento projekt slouží k extrahování výsledků z parlamentních voleb. Odkaz k prohlédnutí voleb 2017 zde.
+Tento projekt slouží k extrahování výsledků z parlamentních voleb z let 2006 až 2021. Odkaz k prohlédnutí voleb 2017 [zde](https://volby.cz/pls/ps2017/ps3?xjazyk=CZ).
 ## Instalace knihoven
 Knihovny, které jsou použity v kódu jsou uloženy v souboru requirements.txt. Pro instalaci doporučuji použít nové virtuální prostředí a s nainstalovaným manažerem spustit následovně:
 ```

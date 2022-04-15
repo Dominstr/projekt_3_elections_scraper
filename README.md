@@ -10,8 +10,10 @@ $ pip install -r requirements.txt
 ```
 ## Spouštění projektu
 Spuštění souboru ```elections-scraper.py``` v rámci příkazového řádku požaduje dva povinné argumenty.
+
 ```python elections-scraper.py <odkaz-uzemniho-celku> <vysledny-soubor>```
 Následně se vám stáhnou výsledky jako soubor s příponou ```.csv```
+
 ## Ukázka projektu
 Výsledky hlasování pro okres Uherské Hradiště:
   1. argument: ```https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=13&xnumnuts=7202```

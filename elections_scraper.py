@@ -49,9 +49,9 @@ def extract_city_data():
         envelopes = city_voters.find("td", {"headers": "sa3"}).text
         valid = city_voters.find("td", {"headers": "sa6"}).text
 
-        city_data.append(registered)
-        city_data.append(envelopes)
-        city_data.append(valid)
+        city_data.append(registered.replace(chr(160), ""))
+        city_data.append(envelopes.replace(chr(160), ""))
+        city_data.append(valid.replace(chr(160), ""))
         cities[city].append(city_data)
 
         # 1. tabulka výsledků voleb
@@ -60,7 +60,7 @@ def extract_city_data():
                 index = row.find("td", {"class": "cislo"}, {"headers": "t1sa1 t1sb1"}).text # číslo strany
                 if index not in political_parties.keys():
                     political_parties[index] = row.find("td", {"headers": "t1sa1 t1sb2"}).text # název strany
-                city_results[index] = row.find("td", {"headers": "t1sa2 t1sb3"}).text # hlasy v dané obci
+                city_results[index] = (row.find("td", {"headers": "t1sa2 t1sb3"}).text).replace(chr(160), "") # hlasy v dané obci
 
         # 2. tabulka výsledků voleb
         for row in city_tables[2].find_all("tr"):
@@ -68,7 +68,7 @@ def extract_city_data():
                 index = row.find("td", {"class": "cislo"}, {"headers": "t2sa1 t2sb1"}).text # číslo strany
                 if index not in political_parties.keys():
                     political_parties[index] = row.find("td", {"headers": "t2sa1 t2sb2"}).text # název strany
-                city_results[index] = row.find("td", {"headers": "t2sa2 t2sb3"}).text # hlasy v dané obci
+                city_results[index] = (row.find("td", {"headers": "t2sa2 t2sb3"}).text).replace(chr(160), "") # hlasy v dané obci
 
         cities[city].append(city_results)
 

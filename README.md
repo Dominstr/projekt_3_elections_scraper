@@ -1,7 +1,7 @@
 # projekt_3_elections_scraper
 Třetí projek Engeto Python Akademie.
 ## Popis projektu
-Tento projekt slouží k extrahování výsledků z parlamentních voleb z let 2006 až 2021. Odkaz k prohlédnutí voleb 2017 [zde](https://volby.cz/pls/ps2017/ps3?xjazyk=CZ).
+Tento projekt slouží k extrahování výsledků z parlamentních voleb z let 2006 až 2021. Odkaz voleb 2017 k prohlédnutí [zde](https://volby.cz/pls/ps2017/ps3?xjazyk=CZ).
 ## Instalace knihoven
 Knihovny, které jsou použity v kódu jsou uloženy v souboru requirements.txt. Pro instalaci doporučuji použít nové virtuální prostředí a s nainstalovaným manažerem spustit následovně:
 ```
@@ -11,13 +11,13 @@ $ pip install -r requirements.txt
 ## Spouštění projektu
 Spuštění souboru ```elections-scraper.py``` v rámci příkazového řádku požaduje dva povinné argumenty.
 
-```python elections-scraper.py <odkaz-uzemniho-celku> <vysledny-soubor>```
-Následně se vám stáhnou výsledky jako soubor s příponou ```.csv```
+```python elections-scraper.py <odkaz-uzemniho-celku> <vysledny-soubor.csv>```
 
+Následně se vám stáhnou výsledky jako soubor s příponou ```.csv```
 ## Ukázka projektu
 Výsledky hlasování pro okres Uherské Hradiště:
   1. argument: ```https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=13&xnumnuts=7202```
-  2. argument: ```vysledky_uh.csv```
+  2. argument: ```vysledky_uh_2017.csv```
 ### Spuštění programu:
 ```python elections_scraper.py "https://volby.cz/pls/ps2017/ps32?xjazyk=CZ&xkraj=13&xnumnuts=7202" "vysledky_uh_2017.csv"```
 ### Průběh stahování:

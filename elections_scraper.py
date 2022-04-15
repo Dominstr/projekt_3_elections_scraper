@@ -6,12 +6,27 @@ import csv
 cities = {} # {city_number: [city_name, city_link, [registered, envelopes, valid], {political_parties}]}
 political_parties = {}
 csv_header = ["code", "location", "registered", "envelopes", "valid"]
-url_district = sys.argv[1]
-file_name = sys.argv[2]
 
-#spouštění z Pycharmu:
-#url_district = "https://volby.cz/pls/ps2017nss/ps32?xjazyk=CZ&xkraj=13&xnumnuts=7202"
-#file_name = "vysledky.csv"
+# kontrola vstupních argumentů
+if len(sys.argv) == 3:
+    if len(sys.argv[1]) > 0 and len(sys.argv[2]) > 0:
+        if "https://" in sys.argv[2] and ".csv" in sys.argv[1]:
+            msg = "Spatne poradi argumentu."
+            check_args = False
+        else:
+            if requests.get(sys.argv[1]).status_code == 200 and ".csv" in sys.argv[2] and len(sys.argv[2]) > 4:
+                url_district = sys.argv[1]
+                file_name = sys.argv[2]
+                check_args = True
+            else:
+                check_args = False
+                msg = "Spatny odkaz, chybejici nazev souboru nebo pripona neni '.csv'."
+    else:
+        check_args = False
+        msg = "Argument nesmi byt prazdny"
+else:
+    msg = ("Nebyly zadány 2 argumenty.")
+    check_args = False
 
 def extract_soup():
     print(f"STAHUJI DATA Z VYBRANEHO URL: {url_district}")
@@ -97,8 +112,16 @@ def write_csv():
         rows.append(row)
     f_writer.writerows(rows)
 
-if __name__ == "__main__":
+def main():
     extract_cities()
     extract_city_data()
     write_csv()
     print("UKONCUJI elections_scraper")
+
+if __name__ == "__main__":
+    if check_args:
+        main()
+    else:
+        print(msg)
+        print("UKONCUJI")
+        quit()
